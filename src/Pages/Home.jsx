@@ -1,27 +1,27 @@
-
-
+import { Upload } from "lucide-react"
+import DataTable from "@/components/DataTable"
 import { Button } from "../components/ui/button"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../components/ui/table"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
-
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "../components/ui/tabs"
-import { Upload } from "lucide-react"
-import DataTable from "@/components/DataTable"
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog"
+
+
+// import { Dialog } from "@radix-ui/react-dialog"
 
 const AdministrateursEmployees = [
   {
@@ -321,45 +321,123 @@ const redacteursEmployees = [
 
 export default function Home() {
   return (
-    <div className="p-8">
-      <Tabs defaultValue="dministrateurs" className="w-full">
-        <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="dministrateurs">Administrateurs</TabsTrigger>
-          <TabsTrigger value="redacteurs">Redacteurs</TabsTrigger>
-          <TabsTrigger value="ingenieurs">Ingenieurs</TabsTrigger>
-          <TabsTrigger value="techniciens">techniciens</TabsTrigger>
-          <TabsTrigger value="adj-Administratif">Adj Administratif</TabsTrigger>
-          <TabsTrigger value="adj-Techniques">Adj Techniques</TabsTrigger>
-        </TabsList>
-        
+    <>
+      {/* <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Edit Profile</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[750px] max-h-[500px] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Ajouter un employé</DialogTitle>
+            <DialogDescription>
+              ajoutez un employé à votre tableau de bord. Cliquez sur Ajouter lorsque vous avez terminé.
+            </DialogDescription>
+          </DialogHeader>
 
-        <TabsContent value="dministrateurs">
-          <DataTable data={AdministrateursEmployees} />
-        </TabsContent>
+          <div className="flex flex-wrap justify-between">
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="cin">CIN</Label>
+              <Input type="text" id="cin" placeholder="HH4571" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="nom">Nom et Prenom</Label>
+              <Input type="text" id="nom" placeholder="Simo Yamir" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="grade">Grade</Label>
+              <Input type="text" id="grade" placeholder="IOS developeur" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="naissance">Date de naissance</Label>
+              <Input type="text" id="naissance" placeholder="14/10/1991" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="recrutement">Date de recrutement</Label>
+              <Input type="text" id="recrutement" placeholder="12/10/1994" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="echelle">Echelle</Label>
+              <Input type="text" id="echelle" placeholder="echelle" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="date-echelle">Date de Echelle</Label>
+              <Input type="text" id="date-echelle" placeholder="echelle" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="Affectation">Affectation</Label>
+              <Input type="text" id="Affectation" placeholder="Affectation" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="traitement-dossier">Traitement dossier</Label>
+              <Input type="text" id="traitement-dossier" placeholder="Validé" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="retraité">Date Retraité</Label>
+              <Input type="text" id="retraité" placeholder="2045-03-14" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="date-echelle">  Echelle</Label>
+              <Input type="text" id="date-echelle" placeholder="echelle" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="Affectation">Affectation</Label>
+              <Input type="text" id="Affectation" placeholder="Affectation" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="traitement-dossier">Traitement dossier</Label>
+              <Input type="text" id="traitement-dossier" placeholder="Validé" />
+            </div>
+            <div className="my-1.5 min-w-72 items-center gap-1.5">
+              <Label htmlFor="retraité">Date Retraité</Label>
+              <Input type="text" id="retraité" placeholder="2045-03-14" />
+            </div>
+          </div>
 
-        <TabsContent value="redacteurs">
-          <DataTable data={redacteursEmployees} />
-        </TabsContent>
+          <DialogFooter>
+            <Button type="submit">Ajouter </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog> */}
+      <div className="p-8">
+        <Tabs defaultValue="dministrateurs" className="w-full">
+          <TabsList className="grid w-full grid-cols-6">
+            <TabsTrigger value="dministrateurs">Administrateurs</TabsTrigger>
+            <TabsTrigger value="redacteurs">Redacteurs</TabsTrigger>
+            <TabsTrigger value="ingenieurs">Ingenieurs</TabsTrigger>
+            <TabsTrigger value="techniciens">techniciens</TabsTrigger>
+            <TabsTrigger value="adj-Administratif">Adj Administratif</TabsTrigger>
+            <TabsTrigger value="adj-Techniques">Adj Techniques</TabsTrigger>
+          </TabsList>
+          
 
-        <TabsContent value="ingenieurs">
-          <DataTable data={AdministrateursEmployees} />
-        </TabsContent>
+          <TabsContent value="dministrateurs">
+            <DataTable data={AdministrateursEmployees} />
+          </TabsContent>
 
-        <TabsContent value="techniciens">
-          <DataTable data={redacteursEmployees} />
-        </TabsContent>
+          <TabsContent value="redacteurs">
+            <DataTable data={redacteursEmployees} />
+          </TabsContent>
 
-        <TabsContent value="adj-Administratif">
-          <DataTable data={AdministrateursEmployees} />
-        </TabsContent>
+          <TabsContent value="ingenieurs">
+            <DataTable data={AdministrateursEmployees} />
+          </TabsContent>
 
-        <TabsContent value="adj-Techniques">
-          <DataTable data={redacteursEmployees} />
-        </TabsContent>
+          <TabsContent value="techniciens">
+            <DataTable data={redacteursEmployees} />
+          </TabsContent>
+
+          <TabsContent value="adj-Administratif">
+            <DataTable data={AdministrateursEmployees} />
+          </TabsContent>
+
+          <TabsContent value="adj-Techniques">
+            <DataTable data={redacteursEmployees} />
+          </TabsContent>
 
 
 
-      </Tabs>
-    </div>
+        </Tabs>
+      </div>
+    </>
   )
 }

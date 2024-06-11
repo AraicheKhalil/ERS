@@ -14,7 +14,9 @@ import {
 } from "../components/ui/table"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
-import { Upload } from "lucide-react"
+import { CircleFadingPlus, Upload } from "lucide-react"
+import { DialogTrigger , Dialog} from './ui/dialog'
+import { Button } from './ui/button'
 
 
 export default function DataTable({data}) {
@@ -33,20 +35,27 @@ export default function DataTable({data}) {
         {data ? (
           <div className=" overflow-x-auto">
             <div className="w-full py-2.5 flex justify-between items-center">
-              <div>
-                <Input
-                  id="upload"
-                  type="file"
-                  accept=".xls,.xlsx"
-                  className="max-w-[150px] file:hidden "
-                />
-                <Label
-                  htmlFor="upload"
-                  className="border px-7 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm"
-                >
-                  <Upload size={16} />
-                  Upload File
-                </Label>
+              <div className='flex items-center gap-3'>
+                <div>
+                  <Input
+                    id="upload"
+                    type="file"
+                    accept=".xls,.xlsx"
+                    className="max-w-[150px] file:hidden "
+                  />
+                  <Label
+                    htmlFor="upload"
+                    className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm"
+                  >
+                    <Upload size={16} />
+                    Upload File
+                  </Label>
+                </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline"><CircleFadingPlus size={16} className='mr-2'/> Ajouter</Button>
+                  </DialogTrigger>
+                </Dialog>
               </div>
 
               <Input
