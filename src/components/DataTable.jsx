@@ -1,7 +1,13 @@
 
 
-
 import React, { useState } from 'react'
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
+import { Button } from './ui/button'
+import CustomForm from './CustomForm'
+import { CircleFadingPlus, Upload } from "lucide-react"
 import {
   Table,
   TableBody,
@@ -12,9 +18,6 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table"
-import { Input } from "../components/ui/input"
-import { Label } from "../components/ui/label"
-import { CircleFadingPlus, Upload } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -24,16 +27,40 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog"
-import { Button } from './ui/button'
-import CustomForm from './CustomForm'
 
 
 export default function DataTable({data}) {
     
     const [searchTerm, setSearchTerm] = useState('');
+    const [file, setFile] = useState(null);
+
     const filteredData = data.filter((item) =>
         item.CIN.includes(searchTerm.toUpperCase())
     );    
+
+    const handleFileChange = (e) => {
+      const selectedFile = e.target.files[0];
+      if (selectedFile) {
+        setFile(selectedFile);
+        convertToJson(selectedFile);
+      }
+    };
+  
+    const convertToJson = (file) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+        const jsonString = JSON.stringify(jsonData, null, 2);
+  
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        saveAs(blob, 'data.json');
+      };
+      reader.readAsArrayBuffer(file);
+    };
+    
 
     return (
       <>
@@ -47,6 +74,7 @@ export default function DataTable({data}) {
                     type="file"
                     accept=".xls,.xlsx"
                     className="max-w-[150px] file:hidden "
+                    onChange={handleFileChange}
                   />
                   <Label
                     htmlFor="upload"

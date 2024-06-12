@@ -1,5 +1,4 @@
 import React from 'react'
-// import HeadChart from './headChart'
 
 
 export default function Header() {
@@ -42,12 +41,7 @@ export default function Header() {
                     <div className='flex gap-5 items-center'>: <p>{"82"}</p></div>
                 </div>
             </div>
-            {/* <HeadChart /> */}
         </div>
-
-
-
-
     </div>
   )
 }

@@ -51,7 +51,7 @@ export default function CustomForm() {
                     <Label htmlFor="grade">Grade</Label>
                     <Select>
                         <SelectTrigger className="min-w-72">
-                            <SelectValue aria-required placeholder="Administarteur" />
+                            <SelectValue value={"hhhh"}  />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="administarateur">Administarateur</SelectItem>
