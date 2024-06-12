@@ -15,20 +15,25 @@ import {
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { CircleFadingPlus, Upload } from "lucide-react"
-import { DialogTrigger , Dialog} from './ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog"
 import { Button } from './ui/button'
+import CustomForm from './CustomForm'
 
 
 export default function DataTable({data}) {
     
     const [searchTerm, setSearchTerm] = useState('');
-    
     const filteredData = data.filter((item) =>
         item.CIN.includes(searchTerm.toUpperCase())
-    );
-
-    console.log(searchTerm)
-    
+    );    
 
     return (
       <>
@@ -45,16 +50,26 @@ export default function DataTable({data}) {
                   />
                   <Label
                     htmlFor="upload"
-                    className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm"
+                    className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm hover:bg-accent" 
                   >
                     <Upload size={16} />
                     Upload File
                   </Label>
                 </div>
-                <Dialog>
+                <Dialog >
                   <DialogTrigger asChild>
-                    <Button variant="outline"><CircleFadingPlus size={16} className='mr-2'/> Ajouter</Button>
+                    <Button variant="outline" className="px-5"><CircleFadingPlus size={16} className='mr-2 '/> Ajouter</Button>
                   </DialogTrigger>
+                  <DialogContent className="sm:max-w-[750px] max-h-[500px] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle>Ajouter un employé</DialogTitle>
+                      <DialogDescription>
+                        ajoutez un employé à votre tableau de bord. Cliquez sur Ajouter lorsque vous avez terminé.
+                      </DialogDescription>
+                    </DialogHeader>
+                    {/* custom form */}
+                    <CustomForm />
+                  </DialogContent>
                 </Dialog>
               </div>
 
@@ -111,12 +126,6 @@ export default function DataTable({data}) {
                   </TableRow>
                 ))}
               </TableBody>
-              {/* <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={3}>Total</TableCell>
-                        <TableCell className="text-right">$2,500.00</TableCell>
-                    </TableRow>
-                    </TableFooter> */}
             </Table>
           </div>
         ) : (
