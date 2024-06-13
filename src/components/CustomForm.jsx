@@ -48,10 +48,11 @@ export default function CustomForm() {
     })
 
 
+
     const handleDateChange = (date, field) => {
       setFormData((prevFormData) => ({
         ...prevFormData,
-        [field]: format(date,"yyyy-MM-dd"),
+        [field]: date //format(date, "yyyy-MM-dd") to make it string and format
       }));
     };
     
@@ -116,30 +117,8 @@ export default function CustomForm() {
           {/* Date de naissance  */}
           <div className="flex flex-col my-1.5 min-w-72  gap-1.5">
             <Label htmlFor="naissance">Date de naissance</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-[280px] justify-start text-left font-normal",
-                    !FormData.date_naissance && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {FormData.date_naissance ? format(FormData.date_naissance, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={FormData.date_naissance}
-                  onSelect={(date) => handleDateChange(date, 'date_naissance')}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-            
-          </div>
+          <CustomDatePicker date={FormData.date_naissance} handleDateChange={handleDateChange} type={'date_naissance'} />
+          </div> 
           {/* Echelle */}
           <div className="my-1.5 min-w-72 items-center gap-1.5">
             <Label htmlFor="echelle">Echelle</Label>
@@ -158,31 +137,10 @@ export default function CustomForm() {
             />
           </div>
           {/* date de Echelle  */}
-          {/* <div className="my-1.5 min-w-72 flex flex-col  gap-1.5">
+          <div className="my-1.5 min-w-72 flex flex-col  gap-1.5">
             <Label htmlFor="recrutement">Date de Echelle</Label>
-            <Popover >
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-[280px] justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"          
-                  selected={date}
-                  onSelect={setDate}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div> */}
+            <CustomDatePicker date={FormData.date_echelle} handleDateChange={handleDateChange} type={'date_echelle'} />
+          </div>
           {/* Echelon */}
           <div className="my-1.5 min-w-72 items-center gap-1.5">
             <Label htmlFor="echelle">Echelon</Label>
@@ -201,57 +159,15 @@ export default function CustomForm() {
             />
           </div>
           {/*  date de Echelon*/}
-          {/* <div className="my-1.5 min-w-72 flex flex-col gap-1.5">
+          <div className="my-1.5 min-w-72 flex flex-col gap-1.5">
             <Label htmlFor="date-echelon">Date de Echelon</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-[280px] justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div> */}
+            <CustomDatePicker date={FormData.date_Echelon} handleDateChange={handleDateChange} type={'date_Echelon'} />
+          </div>
           {/* date de recrutement */}
-          {/* <div className="my-1.5 min-w-72 flex flex-col  gap-1.5">
+          <div className="my-1.5 min-w-72 flex flex-col  gap-1.5">
             <Label htmlFor="recrutement">Date de recrutement</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-[280px] justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div> */}
+            <CustomDatePicker date={FormData.date_recrutement} handleDateChange={handleDateChange} type={'date_recrutement'} />
+          </div>
           {/*  Indice */}
           <div className="my-1.5 min-w-72 items-center gap-1.5">
             <Label htmlFor="indice">Indice</Label>
@@ -351,31 +267,10 @@ export default function CustomForm() {
             />
           </div>
           {/* Date Retraité  */}
-          {/* <div className="my-1.5 min-w-72 flex flex-col gap-1.5">
+          <div className="my-1.5 min-w-72 flex flex-col gap-1.5">
             <Label htmlFor="retraité">Date Retraité</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "w-[280px] justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div> */}
+            <CustomDatePicker date={FormData.date_Retraité} handleDateChange={handleDateChange} type={'date_Retraité'} />
+          </div>
         </div>
 
         <Button className="mt-7 ">Ajouter un employé </Button>
