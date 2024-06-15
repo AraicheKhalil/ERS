@@ -1,19 +1,25 @@
-import { CircleCheck, Combine, LayoutDashboard, LayoutDashboardIcon, ListTodo, NotebookTabs, PieChart, Power, Settings } from 'lucide-react'
-import React, { useContext, useState } from 'react'
-// import { Button } from './ui/button'
+import {  Combine, LayoutDashboardIcon, ListTodo, NotebookTabs, PieChart, Power, Settings } from 'lucide-react'
+import React, { useContext } from 'react'
 import SideBarContext from '@/context/SidebarContext';
+import { Link, useLocation } from 'react-router-dom';
+
+
 
 export default function Sidebar() {
 
+  const {pathname} = useLocation()
+
+  console.log(pathname)
+
   const Menus = [
-    { title: "Overview", src: <LayoutDashboardIcon /> },
-    { title: "Service", src: <ListTodo /> },
-    { title: "Statistiques", src: <PieChart />, gap: true },
-    { title: "Poste Vacant ", src: <Combine /> },
-    { title: "Debts", src:  <PieChart /> },
-    { title: "Retraités", src:  <NotebookTabs  /> },
-    { title: "Settings", src:  <Settings /> ,gap: true},
-    { title: "Sign Out ", src:  <Power />,  },
+    { route : "", title: "Overview", src: <LayoutDashboardIcon /> },
+    { route : "services", title: "Service", src: <ListTodo /> },
+    { route : "statistiques", title: "Statistiques", src: <PieChart />, gap: true },
+    { route : "Poste-vacant", title: "Poste Vacant ", src: <Combine /> },
+    { route : "Depts", title: "Debts", src:  <PieChart /> },
+    { route : "retraités", title: "Retraités", src:  <NotebookTabs  /> },
+    { route : "set", title: "Settings", src:  <Settings /> ,gap: true},
+    { route : "sign-out", title: "Sign Out ", src:  <Power />,  },
     ];
 
     const { open, setOpen } = useContext(SideBarContext);
@@ -52,14 +58,16 @@ export default function Sidebar() {
               <li
                 key={index}
                 className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-      ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}
+                ${Menu.gap ? "mt-9" : "mt-2"} ${pathname === `/${Menu.route}` && "bg-gray-900"} `}
               >
-                <div>{Menu.src}</div>
-                <span
-                  className={`${!open && "hidden"} origin-left duration-200`}
-                >
-                  {Menu.title}
-                </span>
+                <Link to={`/${Menu.route}`} className='flex items-center gap-x-4 w-full'>
+                  <div>{Menu.src}</div>
+                  <span
+                    className={`${!open && "hidden"} origin-left duration-200`}
+                  >
+                    {Menu.title}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
