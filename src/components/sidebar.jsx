@@ -13,8 +13,8 @@ export default function Sidebar() {
 
   const Menus = [
     { route : "", title: "Overview", src: <LayoutDashboardIcon /> },
-    { route : "services", title: "Service", src: <ListTodo /> },
-    { route : "statistiques", title: "Statistiques", src: <PieChart />, gap: true },
+    { route : "statistiques", title: "Statistiques", src: <PieChart /> },
+    { route : "services", title: "Service", src: <ListTodo /> , gap: true },
     { route : "Poste-vacant", title: "Poste Vacant ", src: <Combine /> },
     { route : "Depts", title: "Debts", src:  <PieChart /> },
     { route : "retraités", title: "Retraités", src:  <NotebookTabs  /> },
