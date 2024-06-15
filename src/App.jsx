@@ -1,12 +1,14 @@
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Route , RouterProvider , createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Layout from './components/layout'
+import SideBarContext from './context/SidebarContext'
 
 export default function App() {
+  const [open, setOpen] = useState(true);
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />} >
@@ -16,8 +18,10 @@ export default function App() {
     </Route>
   ))
   return (
-    <div className='font-Poppins'>
-      <RouterProvider router={router} />
-    </div>
+    <SideBarContext.Provider value={{ open, setOpen }}>
+      <div className='font-Poppins'>
+        <RouterProvider router={router} />
+      </div>
+    </SideBarContext.Provider>
   )
 }

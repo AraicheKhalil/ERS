@@ -310,7 +310,7 @@ export default function Home() {
     <>
       <div className="p-8">
         <Tabs defaultValue="dministrateurs" className="w-full">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full lg:grid-cols-6 h-fit grid-cols-response ">
             <TabsTrigger value="dministrateurs">Administrateurs</TabsTrigger>
             <TabsTrigger value="redacteurs">Redacteurs</TabsTrigger>
             <TabsTrigger value="ingenieurs">Ingenieurs</TabsTrigger>

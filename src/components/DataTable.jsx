@@ -66,8 +66,8 @@ export default function DataTable({data}) {
       <>
         {data ? (
           <div className=" overflow-x-auto">
-            <div className="w-full py-2.5 flex justify-between items-center">
-              <div className='flex items-center gap-3'>
+            <div className="w-full py-2.5 flex justify-between items-center flex-wrap gap-y-4">
+              <div className='flex items-center gap-3 flex-nowrap'>
                 <div>
                   <Input
                     id="upload"
@@ -81,7 +81,7 @@ export default function DataTable({data}) {
                     className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm hover:bg-accent" 
                   >
                     <Upload size={16} />
-                    Upload File
+                    Importer un fichier Excel
                   </Label>
                 </div>
                 <Dialog >
@@ -109,6 +109,7 @@ export default function DataTable({data}) {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
+            
             <Table className="min-w-[3000px] ">
               <TableHeader>
                 <TableRow>

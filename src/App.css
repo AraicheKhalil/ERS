@@ -91,9 +91,9 @@
     }
     
     .content-wrapper {
-      background-color: var(--background-color);
+      /* background-color: var(--background-color); */
+      /* margin-left: 250px; */
       min-height: 100vh;
-      margin-left: 280px;
     }
 
     #upload[type="file"]{

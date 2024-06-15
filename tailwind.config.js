@@ -20,6 +20,9 @@ module.exports = {
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],
       },
+      gridTemplateColumns : {
+        'response': 'repeat(auto-fill, 150px)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
