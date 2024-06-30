@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import NewChart from './DashChart'
+import NewChart from './Charts/DashChart'
 import { Dot } from 'lucide-react'
 
 
@@ -44,20 +44,20 @@ export default function Header() {
     useEffect(() => {
         const timer = setTimeout(() => {
           setVisible(true);
-        }, 3000); 
+        }, 2500); 
         return () => clearTimeout(timer); 
       }, []);
 
   return (
     <div>
-      <h1 className="max-w-[700px] text-center mx-auto text-2xl font-semibold py-7 tracking-wide leading-[1.3]">
+      <h1 className="max-w-[700px] text-center mx-auto md:text-2xl text-xl max-md:px-4 font-semibold py-7 tracking-wide leading-[1.3]">
         Département des RH, des affaires juridiques, de la coopération et de la
         collaboration
       </h1>
 
       
 
-      <div className="bg-gray-900 flex flex-wrap justify-between py-4 px-6 text-white mx-8 rounded-[24px] items-center  ">
+      <div className="bg-gray-900 flex flex-wrap justify-between py-4 px-6 text-white md:mx-8 mx-4 rounded-[24px] items-center  ">
         <div className='flex items-center md:gap-10 gap-16 lg:flex-wrap  max-lg:flex-col-reverse max-lg:items-center max-lg:w-full'>
           <NewChart />
           <div className={`flex flex-col flex-wrap max-h-40  gap-3 font-medium gap-x-7  transition-[0.3s] ${visible ? "opacity-100" : "opacity-0 "} max-md:flex-nowrap`}>

@@ -308,7 +308,7 @@ const redacteursEmployees = [
 export default function Home() {
   return (
     <>
-      <div className="p-8">
+      <div className="md:p-8 p-4">
         <Tabs defaultValue="dministrateurs" className="w-full">
           <TabsList className="grid w-full lg:grid-cols-6 h-fit grid-cols-response ">
             <TabsTrigger value="dministrateurs">Administrateurs</TabsTrigger>

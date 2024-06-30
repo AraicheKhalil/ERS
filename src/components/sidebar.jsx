@@ -15,7 +15,7 @@ export default function Sidebar() {
     { route : "", title: "Overview", src: <LayoutDashboardIcon /> },
     { route : "statistiques", title: "Statistiques", src: <PieChart /> },
     { route : "services", title: "Service", src: <ListTodo /> , gap: true },
-    { route : "Poste-vacant", title: "Poste Vacant ", src: <Combine /> },
+    { route : "poste-vacont", title: "Poste Vacant ", src: <Combine /> },
     { route : "Depts", title: "Debts", src:  <PieChart /> },
     { route : "retraités", title: "Retraités", src:  <NotebookTabs  /> },
     { route : "set", title: "Settings", src:  <Settings /> ,gap: true},
@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   return (
     // <div className="sidebar w-[250px] bg-gray-950 border-r ">
-      <div className="sidebar flex w-[250px]">
+      <div className="sidebar flex w-[250px] ">
         <div
           className={` ${
             open ? "w-72" : "w-20 "
@@ -53,7 +53,7 @@ export default function Sidebar() {
               AdeCodes
             </h1>
           </div>
-          <ul className="pt-6">
+          <ul className="pt-6 ">
             {Menus.map((Menu, index) => (
               <li
                 key={index}

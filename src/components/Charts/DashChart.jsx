@@ -10,7 +10,7 @@ const data = [
   { name: 'Adj Techniques', value: 64 },
 ];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042','#ff3dcc','#eeeeee'];
-
+// 
 export default class NewChart extends PureComponent {
 
   render() {

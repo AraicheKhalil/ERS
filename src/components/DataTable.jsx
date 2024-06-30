@@ -67,7 +67,7 @@ export default function DataTable({data}) {
         {data ? (
           <div className=" overflow-x-auto">
             <div className="w-full py-2.5 flex justify-between items-center flex-wrap gap-y-4">
-              <div className='flex items-center gap-3 flex-nowrap'>
+              <div className='flex items-center gap-3 flex-wrap'>
                 <div>
                   <Input
                     id="upload"
@@ -78,7 +78,7 @@ export default function DataTable({data}) {
                   />
                   <Label
                     htmlFor="upload"
-                    className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm hover:bg-accent" 
+                    className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm hover:bg-accent text-nowrap" 
                   >
                     <Upload size={16} />
                     Importer un fichier Excel

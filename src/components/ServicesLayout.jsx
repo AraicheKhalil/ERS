@@ -1,11 +1,12 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Sidebar from './sidebar'
 import Header from './Header'
 import { useContext } from 'react';
 import SideBarContext from '@/context/SidebarContext';
 
 
-function Layout() {
+function ServicesLayout() {
+
   const { open, setOpen } = useContext(SideBarContext);
 
     
@@ -15,11 +16,11 @@ function Layout() {
       <Sidebar />
       {/* right side/content of the page */}
       <div className={`content-wrapper transition  ml-[250px] ${open ? "ml-[250px]" : "ml-[80px]"}`}>
-        <Header /> 
+        {/* <Header /> */}
         <Outlet />
       </div>
     </main>
   )
 }
 
-export default Layout
+export default ServicesLayout;
