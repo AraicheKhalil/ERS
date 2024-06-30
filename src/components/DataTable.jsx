@@ -29,13 +29,15 @@ import {
 } from "../components/ui/dialog"
 
 
-export default function DataTable({data}) {
+export default function DataTable({data , HeadKeys}) {
+
+  console.log("kk",HeadKeys,data)
     
     const [searchTerm, setSearchTerm] = useState('');
     const [file, setFile] = useState(null);
 
     const filteredData = data.filter((item) =>
-        item.CIN.includes(searchTerm.toUpperCase())
+        item.NomEtPrenom.includes(searchTerm.toUpperCase())
     );    
 
     const handleFileChange = (e) => {
@@ -81,7 +83,7 @@ export default function DataTable({data}) {
                     className="border px-5 py-2.5 rounded-lg flex items-center gap-2 text-[#64748b] text-sm hover:bg-accent text-nowrap" 
                   >
                     <Upload size={16} />
-                    Importer un fichier Excel
+                    Export un fichier Excel
                   </Label>
                 </div>
                 <Dialog >
@@ -103,7 +105,7 @@ export default function DataTable({data}) {
 
               <Input
                 type="text"
-                placeholder="Entre CIN"
+                placeholder="Entrer le nom"
                 className="max-w-[250px] "
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -113,7 +115,10 @@ export default function DataTable({data}) {
             <Table className="min-w-[3000px] ">
               <TableHeader>
                 <TableRow>
-                  <TableHead>CIN</TableHead>
+                  {HeadKeys?.map((key,idex) => (
+                    <TableHead key={idex}>{key.key}</TableHead>
+                  ))}
+                  {/* <TableHead>CIN</TableHead>
                   <TableHead>Nom/Prenom</TableHead>
                   <TableHead>Grade</TableHead>
                   <TableHead>Date naissance</TableHead>
@@ -128,7 +133,7 @@ export default function DataTable({data}) {
                   <TableHead>Situation administrative</TableHead>
                   <TableHead>Affectation </TableHead>
                   <TableHead>Traitement dossier</TableHead>
-                  <TableHead>Date Retraité</TableHead>
+                  <TableHead>Date Retraité</TableHead> */}
                 </TableRow>
               </TableHeader>
               <TableBody>

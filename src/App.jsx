@@ -10,6 +10,7 @@ import NotFound from './Pages/NotFound'
 import Statistiques from './Pages/statistiques'
 import PosteVacont from './Pages/PosteVacont'
 import Services from './Pages/Services'
+import Retraités from './Pages/Retraités'
 
 export default function App() {
   const [open, setOpen] = useState(true);
@@ -19,6 +20,7 @@ export default function App() {
       <Route path='/' element={<Layout />}  errorElement={<NotFound />} >
         <Route index element={<Home />} />
         <Route path='/statistiques' element={<Statistiques />} />
+        <Route path='/retraités' element={<Retraités />} />
       </Route>
 
       {/* <Route path='/services' element={<ServicesLayout />}>

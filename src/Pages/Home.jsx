@@ -303,6 +303,57 @@ const redacteursEmployees = [
   },
 ]
 
+const headKey = [
+  {
+    "key" : "CIN",
+  },
+  {
+    "key" : "Nom/Prenom",
+  },
+  {
+    "key" : "Grade",
+  },
+  {
+    "key" : "Date naissance",
+  },
+  {
+    "key" : "Date recrutement ",
+  },
+  {
+    "key" : "Echelle ",
+  },
+  {
+    "key" : "Date echelle ",
+  },
+  {
+    "key" : "Echelon",
+  },
+  {
+    "key" : "Date Echelon",
+  },
+  {
+    "key" : "Indice",
+  },
+  {
+    "key" : "Mutuelle",
+  },
+  {
+    "key" : "Diplome spécialialité",
+  },
+  {
+    "key" : "Situation administrative",
+  },
+  {
+    "key" : "Affectation ",
+  },
+  {
+    "key" : "Traitement dossier",
+  },
+  {
+    "key" : "Date Retraité",
+  }
+]
+
 
 
 export default function Home() {
@@ -321,27 +372,27 @@ export default function Home() {
           
 
           <TabsContent value="dministrateurs">
-            <DataTable data={AdministrateursEmployees} />
+            <DataTable data={AdministrateursEmployees} HeadKeys={headKey} />
           </TabsContent>
 
           <TabsContent value="redacteurs">
-            <DataTable data={redacteursEmployees} />
+            <DataTable data={redacteursEmployees}  HeadKeys={headKey} />
           </TabsContent>
 
           <TabsContent value="ingenieurs">
-            <DataTable data={AdministrateursEmployees} />
+            <DataTable data={AdministrateursEmployees}  HeadKeys={headKey}  />
           </TabsContent>
 
           <TabsContent value="techniciens">
-            <DataTable data={redacteursEmployees} />
+            <DataTable data={redacteursEmployees}   HeadKeys={headKey}/>
           </TabsContent>
 
           <TabsContent value="adj-Administratif">
-            <DataTable data={AdministrateursEmployees} />
+            <DataTable data={AdministrateursEmployees}  HeadKeys={headKey} />
           </TabsContent>
 
           <TabsContent value="adj-Techniques">
-            <DataTable data={redacteursEmployees} />
+            <DataTable data={redacteursEmployees}  HeadKeys={headKey} />
           </TabsContent>
 
         </Tabs>
