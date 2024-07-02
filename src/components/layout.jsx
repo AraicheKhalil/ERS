@@ -2,11 +2,11 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Sidebar from './sidebar'
 import Header from './Header'
 import { useContext } from 'react';
-import SideBarContext from '@/context/SidebarContext';
+import { AppContext } from '@/hooks/context/AppContext';
 
 
 function Layout() {
-  const { open, setOpen } = useContext(SideBarContext);
+  const { open, setOpen } = useContext(AppContext);
 
     
   return (

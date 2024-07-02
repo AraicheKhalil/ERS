@@ -2,6 +2,7 @@
 
 import React from 'react'
 import DataTable from '@/components/DataTable'
+import PageTitle from '@/components/PageTitle'
 
   const redacteursEmployees = [
     {
@@ -205,10 +206,7 @@ export default function Retraités() {
   return (
     <>
         <div className='md:p-8 p-4'>
-            <div className='mb-4'>
-                <h1 className='font-bold text-2xl text-gray-900'>Les Retraités</h1>
-                <p className='text-gray-500 text-sm max-w-[600px] mt-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa itaque magni omnis, iure assumenda nulla debitis dolorum voluptatibus consequatur facilis.</p>
-            </div>
+            <PageTitle title={"Les Retraités"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa itaque magni omnis, iure assumenda nulla debitis dolorum voluptatibus consequatur facilis."} />
             <DataTable data={redacteursEmployees} HeadKeys={headKey} />
         </div>
     </>

@@ -31,7 +31,6 @@ import {
 
 export default function DataTable({data , HeadKeys}) {
 
-  console.log("kk",HeadKeys,data)
     
     const [searchTerm, setSearchTerm] = useState('');
     const [file, setFile] = useState(null);

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Sidebar from './sidebar'
 import Header from './Header'
 import { useContext } from 'react';
-import SideBarContext from '@/context/SidebarContext';
+import SideBarContext from '@/hooks/context/AppContext';
 
 
 function ServicesLayout() {

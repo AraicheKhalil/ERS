@@ -1,28 +1,30 @@
+import { AppContext } from '@/hooks/context/AppContext';
 import {  Combine, LayoutDashboardIcon, ListTodo, NotebookTabs, PieChart, Power, Settings } from 'lucide-react'
 import React, { useContext } from 'react'
-import SideBarContext from '@/context/SidebarContext';
 import { Link, useLocation } from 'react-router-dom';
 
 
 
 export default function Sidebar() {
 
+  const {  open, setOpen } = useContext(AppContext);
+  console.log(open)
+
   const {pathname} = useLocation()
 
-  console.log(pathname)
 
   const Menus = [
+    
     { route : "", title: "Overview", src: <LayoutDashboardIcon /> },
     { route : "statistiques", title: "Statistiques", src: <PieChart /> },
     { route : "services", title: "Service", src: <ListTodo /> , gap: true },
     { route : "poste-vacont", title: "Poste Vacant ", src: <Combine /> },
-    { route : "Depts", title: "Debts", src:  <PieChart /> },
+    { route : "Congé", title: "Congé", src:  <PieChart /> },
     { route : "retraités", title: "Retraités", src:  <NotebookTabs  /> },
+    { route : "eap-mi-ac", title: "EAP (MI /AC)", src:  <NotebookTabs  /> },
     { route : "set", title: "Settings", src:  <Settings /> ,gap: true},
     { route : "sign-out", title: "Sign Out ", src:  <Power />,  },
     ];
-
-    const { open, setOpen } = useContext(SideBarContext);
 
   return (
     // <div className="sidebar w-[250px] bg-gray-950 border-r ">
