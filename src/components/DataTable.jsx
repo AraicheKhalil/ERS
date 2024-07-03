@@ -11,9 +11,7 @@ import { CircleFadingPlus, Upload } from "lucide-react"
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -22,14 +20,13 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog"
 
 
-export default function DataTable({data , HeadKeys}) {
+export default function DataTable({data , HeadKeys, tableWidth}) {
 
     
     const [searchTerm, setSearchTerm] = useState('');
@@ -111,7 +108,7 @@ export default function DataTable({data , HeadKeys}) {
               />
             </div>
             
-            <Table className="min-w-[3000px] ">
+            <Table className={`${tableWidth ? tableWidth : "min-w-[3000px]"}`} >
               <TableHeader>
                 <TableRow>
                   {HeadKeys?.map((key,idex) => (

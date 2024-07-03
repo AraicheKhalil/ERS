@@ -26,7 +26,6 @@ export default function App() {
         <Route path='/eap-mi-ac' element={<EAP />} />
       </Route>
       <Route path='*' element={<NotFound />} />
-
     </Route>
   ))
   return (

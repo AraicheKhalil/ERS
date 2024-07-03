@@ -33,8 +33,6 @@ const data = [
     "Grade": "Analyste financier",
     "dateNaissance": "1988-04-22",
     "DateRecrutement": "2012-11-05",
-    "Echelle": "11",
-    "DateEchelle": "2019-06-18",
   },
   {
     "CIN": "HH12354",
@@ -42,8 +40,6 @@ const data = [
     "Grade": "Analyste financier",
     "dateNaissance": "1988-04-22",
     "DateRecrutement": "2012-11-05",
-    "Echelle": "11",
-    "DateEchelle": "2019-06-18",
   },
   {
     "CIN": "HH12354",
@@ -51,8 +47,6 @@ const data = [
     "Grade": "Analyste financier",
     "dateNaissance": "1988-04-22",
     "DateRecrutement": "2012-11-05",
-    "Echelle": "11",
-    "DateEchelle": "2019-06-18",
   },
   {
     "CIN": "HH12354",
@@ -60,8 +54,6 @@ const data = [
     "Grade": "Analyste financier",
     "dateNaissance": "1988-04-22",
     "DateRecrutement": "2012-11-05",
-    "Echelle": "11",
-    "DateEchelle": "2019-06-18",
   },
   {
     "CIN": "HH12354",
@@ -69,10 +61,10 @@ const data = [
     "Grade": "Analyste financier",
     "dateNaissance": "1988-04-22",
     "DateRecrutement": "2012-11-05",
-    "Echelle": "11",
-    "DateEchelle": "2019-06-18",
   }
 ]
+
+const tableWidth = "w-full border rounded-lg"
 
 export default function Congé() {
 
@@ -101,7 +93,7 @@ export default function Congé() {
 
        <div className='bg-gray-100 rounded-lg  p-6 mb-4'>
          
-         <form onSubmit={SubmitForm} action="" className='bg-gray-100 w-full flex items-center flex-wrap gap-5 md:gap-10'>
+         <form onSubmit={SubmitForm} action="" className='bg-gray-100 w-full flex items-center flex-wrap gap-4 md:gap-6'>
             <div className=' min-w-72 '>
               <Label htmlFor="nom">Nom et Prenom</Label>
               <Input
@@ -151,7 +143,7 @@ export default function Congé() {
          </form>
        </div>
 
-       <DataTable HeadKeys={HeadKeys} data={data} />
+       <DataTable HeadKeys={HeadKeys} data={data} tableWidth={tableWidth}/>
     </div>
   )
 }

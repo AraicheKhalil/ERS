@@ -1,7 +1,8 @@
 import { AppContext } from '@/hooks/context/AppContext';
-import {  Combine, LayoutDashboardIcon, ListTodo, NotebookTabs, PieChart, Power, Settings } from 'lucide-react'
+import {  BriefcaseBusiness, Coffee, Combine, Files, LayoutDashboardIcon, ListTodo, NotebookTabs, PieChart, Power, Settings, VaultIcon } from 'lucide-react'
 import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { Button } from './ui/button';
 
 
 
@@ -12,18 +13,15 @@ export default function Sidebar() {
 
   const {pathname} = useLocation()
 
-
   const Menus = [
     
     { route : "", title: "Overview", src: <LayoutDashboardIcon /> },
     { route : "statistiques", title: "Statistiques", src: <PieChart /> },
     { route : "services", title: "Service", src: <ListTodo /> , gap: true },
     { route : "poste-vacont", title: "Poste Vacant ", src: <Combine /> },
-    { route : "Congé", title: "Congé", src:  <PieChart /> },
+    { route : "Congé", title: "Congé", src:  <Coffee /> },
     { route : "retraités", title: "Retraités", src:  <NotebookTabs  /> },
     { route : "eap-mi-ac", title: "EAP (MI /AC)", src:  <NotebookTabs  /> },
-    { route : "set", title: "Settings", src:  <Settings /> ,gap: true},
-    { route : "sign-out", title: "Sign Out ", src:  <Power />,  },
     ];
 
   return (
@@ -72,6 +70,29 @@ export default function Sidebar() {
                 </Link>
               </li>
             ))}
+            <li className={`mt-9 flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+                 `}>
+              <button className='flex items-center gap-x-4 w-full'
+              >
+                <span >
+                  <Files />
+                </span>
+                <span className={`${!open && "hidden"} origin-left duration-200`}>Attestation de Travail</span>
+              </button>
+            </li>
+            <li className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+                 `}>
+              <button className='flex items-center gap-x-4 w-full'
+                
+              >
+                {/* Attestation de Travail */}
+                <span >
+                  <BriefcaseBusiness />
+                </span>
+                <span className={`${!open && "hidden"} origin-left duration-200`}>EAP / CAP </span>
+              </button>
+            </li>
+            
           </ul>
         </div>
       </div>
