@@ -21,6 +21,8 @@ export default function App() {
       <Route path='/' element={<Layout />}  >
         <Route index element={<Home />} />
         <Route path='/statistiques' element={<Statistiques />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/poste-vacont' element={<PosteVacont />} />        
         <Route path='/retraités' element={<Retraités />} />
         <Route path='/Congé' element={<Congé />} />
         <Route path='/eap-mi-ac' element={<EAP />} />

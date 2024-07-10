@@ -114,22 +114,6 @@ export default function DataTable({data , HeadKeys, tableWidth}) {
                   {HeadKeys?.map((key,idex) => (
                     <TableHead key={idex}>{key.key}</TableHead>
                   ))}
-                  {/* <TableHead>CIN</TableHead>
-                  <TableHead>Nom/Prenom</TableHead>
-                  <TableHead>Grade</TableHead>
-                  <TableHead>Date naissance</TableHead>
-                  <TableHead>Date recrutement </TableHead>
-                  <TableHead>Echelle </TableHead>
-                  <TableHead>Date echelle </TableHead>
-                  <TableHead>Echelon</TableHead>
-                  <TableHead>Date Echelon</TableHead>
-                  <TableHead>Indice</TableHead>
-                  <TableHead>Mutuelle</TableHead>
-                  <TableHead>Diplome spécialialité</TableHead>
-                  <TableHead>Situation administrative</TableHead>
-                  <TableHead>Affectation </TableHead>
-                  <TableHead>Traitement dossier</TableHead>
-                  <TableHead>Date Retraité</TableHead> */}
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -153,6 +137,7 @@ export default function DataTable({data , HeadKeys, tableWidth}) {
                     <TableCell>{invoice.Affectation}</TableCell>
                     <TableCell>{invoice.TraitementDossier}</TableCell>
                     <TableCell>{invoice.DateRetraité}</TableCell>
+                    <TableCell>{invoice.Service}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
